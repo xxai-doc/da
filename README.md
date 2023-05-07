@@ -7,3 +7,4 @@ Front-end-koden på hjemmesiden er open source, velkommen til at hjælpe med at 
 * [front-end kode](https://github.com/xxai-art/web)
 * [Sprogpakker til webstedet som helhed](https://github.com/xxai-art/web/tree/main/i18n)
 * [Sprogpakker til login-moduler](https://github.com/wacpkg/user/tree/main/ui.i18n)
+* [Hjemmeside flersproget dokumentation](https://github.com/xxai-doc)
