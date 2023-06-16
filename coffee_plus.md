@@ -2,13 +2,13 @@
 
 [@w5/coffee_plus](http://npmjs.com/@w5/coffee_plus) , tilføj nogle funktioner på basis af coffeescript-syntaks, se [coffee_plus](./coffee_plus.md) .
 
-* erklære variabel
+## erklære variabel
 
 ```
 + var1, var2
 ```
 
-* erklæringsmærkat
+## erklæringsmærkat
 
 `:$` er til brug med [svelte](https://svelte.dev/docs#component-format-script-3-$-marks-a-statement-as-reactive) .
 
@@ -90,7 +90,7 @@ $ : (func = function() {
 });
 ```
 
-* hurtig import
+## hurtig import
 
 ```
 > zx/globals:
