@@ -28,3 +28,47 @@ Byg videre på følgende 3 projekter
 * [@w5/i18n](https://www.npmjs.com/package/@w5/i18n)
 
   Sprogfiler til oversættelse `yaml` genererede websteder.
+
+### Dokumentoversættelsesautomatiseringsinstruktioner
+
+Se repository [xxai-art/doc](https://github.com/xxai-art/doc)
+
+Det anbefales at installere nodejs, [direnv](https://direnv.net) og [bun](https://github.com/oven-sh/bun) først, og derefter køre `direnv allow` efter indtastning af mappen.
+
+For at undgå alt for store lagre oversat til hundredvis af sprog, oprettede jeg et separat kodelager for hvert sprog og oprettede en organisation til at opbevare dette lager.
+
+Indstilling af miljøvariablen `GITHUB_ACCESS_TOKEN` og derefter kørsel af [create.github.coffee](https://github.com/xxai-art/doc/blob/main/create.github.coffee) vil automatisk oprette lageret.
+
+Du kan selvfølgelig også stille den på et lager.
+
+Oversættelsesscriptreference [run.sh](https://github.com/xxai-art/doc/blob/main/run.sh)
+
+Scriptkoden fortolkes som følger:
+
+[bunx](https://bun.sh/docs/cli/bunx) er en erstatning for npx, som er hurtigere. Hvis du ikke har bun installeret, kan du selvfølgelig bruge `npx` i stedet for.
+
+`bunx mdt zh` gengiver `.mdt` i zh-mappen som `.md` , se de 2 linkede filer nedenfor
+
+* [coffee_plus.mdt](https://github.com/xxai-doc/zh/blob/main/coffee_plus.mdt)
+* [coffee_plus.md](https://github.com/xxai-doc/zh/blob/main/coffee_plus.md)
+
+`bunx i18n` er kernekoden til oversættelse (hvis du kun har `nodejs` installeret, men `bun` og `direnv` ikke er installeret, kan du også køre `npx i18n` for at oversætte).
+
+Den vil parse [i18n.yml](https://github.com/xxai-art/doc/blob/main/i18n.yml) , konfigurationen af `i18n.yml` i dette dokument er som følger:
+
+```
+en:
+zh: ja ko en
+```
+
+Betydningen er: kinesisk oversættelse til japansk, koreansk, engelsk, engelsk oversættelse til alle andre sprog. Hvis du kun vil støtte kinesisk og engelsk, kan du bare skrive `zh: en` .
+
+Den sidste er [gen.README.coffee](https://github.com/xxai-art/doc/blob/main/gen.README.coffee) , som udtrækker indholdet mellem hovedtitlen og den første undertitel af hvert sprogs `README.md` for at generere en indgang `README.md` . Koden er meget enkel, du kan selv se på den.
+
+Google API bruges til gratis oversættelse. Hvis du ikke kan få adgang til Google, skal du konfigurere og indstille en proxy, såsom:
+
+```
+export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+```
+
+Oversættelsesscriptet vil generere en oversættelsescache i `.i18n` biblioteket, tjek det med `git status` og føj det til kodelageret for at undgå gentagne oversættelser.
