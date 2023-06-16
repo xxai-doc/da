@@ -1,10 +1,10 @@
 <p align="center"><a href="https://xxai.art"><img src="https://cdn.jsdelivr.net/gh/xxai-art/doc/logo.svg"/></a><br/><a href="https://xxai.art"><img src="https://cdn.jsdelivr.net/gh/xxai-art/doc/xxai.svg"/></a></p><p align="center"><a href="https://github.com/xxai-art/doc#readme"><img alt="I18N" src="https://cdn.jsdelivr.net/gh/wactax/img/t.svg"/></a>　<a href="https://groups.google.com/u/0/g/xxai-art"><img alt="Google Groups" src="https://cdn.jsdelivr.net/gh/wactax/img/g-groups.svg"/></a></p>
 
-# xxAI.art
+Det anbefales at installere nodejs, [direnv](https://direnv.net) , [bun](https://github.com/oven-sh/bun) først og derefter `direnv allow` efter indtastning af biblioteket ( [.envrc](https://github.com/xxai-art/doc/blob/main/.envrc) vil blive udført automatisk efter indtastning af biblioteket).
 
-En del af webstedskoden er open source, velkommen til at hjælpe med at optimere oversættelsen.
+Betydningen er: kinesisk oversættelse til japansk, koreansk, engelsk, engelsk oversættelse til alle andre sprog. Hvis du kun vil støtte kinesisk og engelsk, kan du bare skrive `zh: en` .
 
-## front-end kode
+Betydningen er: kinesisk oversættelse til japansk, koreansk, engelsk, engelsk oversættelse til alle andre sprog. Hvis du kun vil støtte kinesisk og engelsk, kan du bare skrive `zh: en` .
 
 * [front-end kode](https://github.com/xxai-art/web)
 * [Sprogpakker til webstedet som helhed](https://github.com/xxai-art/web/tree/main/i18n)
@@ -31,15 +31,15 @@ Byg videre på følgende 3 projekter
 
 ### Dokumentoversættelsesautomatiseringsinstruktioner
 
-Se repository [xxai-art/doc](https://github.com/xxai-art/doc)
+Se kodelager [xxai-art/doc](https://github.com/xxai-art/doc)
 
-Det anbefales at installere nodejs, [direnv](https://direnv.net) og [bun](https://github.com/oven-sh/bun) først, og derefter køre `direnv allow` efter indtastning af mappen.
+Det anbefales at installere nodejs, [direnv](https://direnv.net) , [bun](https://github.com/oven-sh/bun) først og derefter `direnv allow` efter indtastning af biblioteket ( [.envrc](https://github.com/xxai-art/doc/blob/main/.envrc) vil blive udført automatisk efter indtastning af biblioteket).
 
-For at undgå alt for store lagre oversat til hundredvis af sprog, oprettede jeg et separat kodelager for hvert sprog og oprettede en organisation til at opbevare dette lager.
+For at undgå den store kodebase oversat til hundredvis af sprog, oprettede jeg en separat kodebase for hvert sprog og oprettede en organisation til at gemme kodebasen
 
-Indstilling af miljøvariablen `GITHUB_ACCESS_TOKEN` og derefter kørsel af [create.github.coffee](https://github.com/xxai-art/doc/blob/main/create.github.coffee) vil automatisk oprette lageret.
+Indstilling af miljøvariablen `GITHUB_ACCESS_TOKEN` og derefter kørsel af [create.github.coffee](https://github.com/xxai-art/doc/blob/main/create.github.coffee) vil automatisk oprette kodelageret.
 
-Du kan selvfølgelig også stille den på et lager.
+Du kan selvfølgelig også lægge den i en kodebase.
 
 Oversættelsesscriptreference [run.sh](https://github.com/xxai-art/doc/blob/main/run.sh)
 
@@ -71,4 +71,8 @@ Google API bruges til gratis oversættelse. Hvis du ikke kan få adgang til Goog
 export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
 ```
 
-Oversættelsesscriptet vil generere en oversættelsescache i `.i18n` biblioteket, tjek det med `git status` og føj det til kodelageret for at undgå gentagne oversættelser.
+Oversættelsesscriptet vil generere en oversat cache i `.i18n` biblioteket, tjek det venligst med `git status` og føj det til kodelageret for at undgå gentagne oversættelser.
+
+Kør venligst `bunx i18n` hver gang du ændrer oversættelsen for at opdatere cachen.
+
+Hvis den originale tekst og oversættelsen ændres på samme tid, vil cachen blive forvirret, så hvis du vil ændre, kan du kun ændre én, og derefter køre `bunx i18n` for at opdatere cachen.
