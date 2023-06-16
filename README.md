@@ -17,14 +17,14 @@ Frontend-programmeringssproget er [@w5/coffee_plus](http://npmjs.com/@w5/coffee_
 
 Byg videre på følgende 3 projekter
 
-### [@w5/mdt](https://www.npmjs.com/package/@w5/mdt)
+* [@w5/mdt](https://www.npmjs.com/package/@w5/mdt)
 
-Markdown-skabelonen med suffikset `.mdt` , kan henvise til eksterne filer med en syntaks svarende til `<+ ./coffee_plus/import.js>` .
+  Suffikset er `.mdt` , du kan bruge syntaksen svarende til `<+ ./coffee_plus/import.js>` til at henvise til eksterne filer og generere markdown med suffikset `.md` .
 
-[@w5/trmd](https://www.npmjs.com/package/@w5/trmd)
+* [@w5/trmd](https://www.npmjs.com/package/@w5/trmd)
 
-Markdown-oversættelse vil ikke oversætte koder og links og vil cache oversatte sætninger. Hvis oversættelsen er ændret, men den originale tekst ikke er ændret, vil det ikke overskrive ændringen af ​​oversættelsen, hvis du udfører den igen.
+  Markdown-oversættelse vil ikke oversætte koder og links og vil cache oversatte sætninger. Hvis oversættelsen er ændret, men den originale tekst ikke er ændret, vil det ikke overskrive ændringen af ​​oversættelsen, hvis du udfører den igen.
 
-[@w5/i18n](https://www.npmjs.com/package/@w5/i18n)
+* [@w5/i18n](https://www.npmjs.com/package/@w5/i18n)
 
-Sprogfiler til oversættelse `yaml` genererede websteder.
+  Sprogfiler til oversættelse `yaml` genererede websteder.
